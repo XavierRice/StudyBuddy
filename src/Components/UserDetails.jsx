@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom"
-import { Card, ListGroup } from "react-bootstrap";
+import { Card, ListGroup, Button } from "react-bootstrap";
 
 const API = import.meta.env.VITE_BASE_URL;
 
@@ -27,11 +27,11 @@ function UserDetails() {
     };
 
     const handleDelete = () => {
-        deleteUser()
+        const confirmed = window.confirm('Are you sure you want to delete this user')
+        if(confirmed){
+            deleteUser()
+        } 
     }
-
-   
-
     return (
         <Card style={{ width: '18rem' }}>
             {user && (
@@ -50,11 +50,12 @@ function UserDetails() {
           </ListGroup>
           <Card.Body>
             <Link to={`/users`}>
-              <button>Back</button>
+              <Button variant="secondary">Back</Button>
             </Link>
             <Link to={`/users/${id}/edit`}>
-              <button>Edit</button>
+              <Button variant="warning">Edit</Button>
             </Link>
+            <Button variant="danger" onClick={handleDelete}>Delete</Button>
           </Card.Body>
         </>
       )}
