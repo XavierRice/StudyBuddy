@@ -16,9 +16,10 @@ let navigate = useNavigate();
 useEffect(()=>{
     fetch(`${API}/user/${id}/notes/${note_id}`)
     .then((response) => response.json())
-    .then((responseJson) => setNote(responseJson))
+    .then((responseJson) => setNote(responseJson.note))
     .catch((error) => console.error(error))
 }, [note_id])
+
 
 
 const deleteNote = () => {
@@ -37,8 +38,22 @@ const handleDelete = () => {
 };
 console.log(note)
 return (
-    <div>
-   
+    <div key={note.id}>
+    <h2>Notes</h2>
+      <p>{note.subject_name}:</p>
+      <p>Title: {note.title}</p>
+      {/* Render content based on types */}
+      {note.video && (
+        <ReactPlayer url={note.content} controls />
+      )}
+      {note.content_type === 'markdown' && (
+        <ReactMarkdown>{note.content}</ReactMarkdown>
+      )}
+      {note.content_type === 'google_doc' && (
+        <GoogleDocsViewer fileUrl={note.content} />
+      )}
+
+      <button onClick={handleDelete}>Delete Note</button>
   </div>
 )
 
