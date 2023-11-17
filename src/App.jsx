@@ -10,8 +10,7 @@ import FourOFour from './Pages/FourOFour'
 
 
 //COMPONENTS
-
-
+import NoteDetails from './Components/NoteDetails'
 
 
 function App() {
@@ -25,6 +24,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/users" element={<Index />} />
         <Route path="/users/:id" element={<Show/>}/>
+        <Route exact path="/users/:id/notes/:note_id" element={<NoteDetails/>}/>
       </Routes>
       </main>
       </Router>

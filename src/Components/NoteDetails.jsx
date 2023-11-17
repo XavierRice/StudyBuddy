@@ -1,6 +1,9 @@
-import { response } from 'express';
+
 import { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate, useMatch } from 'react-router-dom';
+import ReactPlayer from 'react-player';
+import ReactMarkdown from 'react-markdown'
+import GoogleDocsViewer from 'react-google-docs-viewer'
 
 const API = import.meta.env.VITE_BASE_URL;
 
@@ -32,11 +35,15 @@ const handleDelete = () => {
       deleteNote()
   }
 };
-
+console.log(note)
 return (
-    <></>
+    <div>
+   
+  </div>
 )
 
 
 
 }
+
+export default NoteDetails;

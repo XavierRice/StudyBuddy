@@ -25,7 +25,7 @@ function Users() {
                 {users.map((user) => {
                     return (
 
-                        <Accordion.Item eventKey={user.id.toString()}>
+                        <Accordion.Item eventKey={user.id.toString()} key={user.id}>
                             <Accordion.Header>{user.username}</Accordion.Header>
                             <Accordion.Body>
                                 {user.name}
