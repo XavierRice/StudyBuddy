@@ -44,7 +44,9 @@ function UserDetails() {
           <ListGroup variant="flush">
             {user.allNotes && user.allNotes.map((note) => (
               <ListGroup.Item key={note.note_id}>
+                 <Link to={`/users/${id}/notes/${note.note_id}`}>
                 <strong>{note.subject_name}</strong>: {note.title}
+                </Link>
               </ListGroup.Item>
             ))}
           </ListGroup>
