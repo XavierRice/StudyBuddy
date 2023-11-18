@@ -37,7 +37,7 @@ function UserDetails() {
         <Card style={{ width: '18rem' }}>
             {user && (
         <>
-          <Card.Img variant="top" src={user.profilepic} />
+          <Card.Img variant="top" src={imgObj[user.profilepic]} />
           <Card.Body>
             <Card.Title>{user.name}</Card.Title>
             <Card.Text>{user.membership ? '🌟' : 'Become a member today'}</Card.Text>

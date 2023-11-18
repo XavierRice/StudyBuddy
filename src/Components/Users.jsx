@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Card, Accordion, AccordionItem } from 'react-bootstrap';
+import {  Accordion } from 'react-bootstrap';
 import { Link } from "react-router-dom"
 
 const API = import.meta.env.VITE_BASE_URL;
@@ -24,7 +24,6 @@ function Users() {
             <Accordion>
                 {users.map((user) => {
                     return (
-
                         <Accordion.Item eventKey={user.id.toString()} key={user.id}>
                             <Accordion.Header>{user.username}</Accordion.Header>
                             <Accordion.Body>
@@ -32,7 +31,7 @@ function Users() {
                                 <br/>
                                 {user.membership ? "🌟" : "BECOME A MEMEBER"}
                                 <br/>
-                                <Link to={`/users/${user.id}`}>✅</Link>
+                                <Link to={`/users/${user.id}`}>🔎STUDIES:</Link>
                             </Accordion.Body>
                         </Accordion.Item>
                     )

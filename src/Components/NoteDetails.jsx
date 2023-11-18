@@ -68,7 +68,17 @@ function NoteDetails() {
       { note.videos && (
         <VideoContent urls={note.videos} />
       )}
-      <p>{note.content}</p>
+      <br/>
+      <br/>
+      <br/>
+      <div style={{
+      width: '735px',
+      height: '200px',
+      border: '2px solid #000',
+      padding: `1em`, 
+    }}>
+        {note.content}
+      </div>
       <br />
       {viewEdit ? (
         <NoteEditForm

@@ -62,6 +62,12 @@ const onSubmit = (event) => {
       <Form.Group className="mb-3">
         <Form.Label>Content</Form.Label>
         <Form.Control
+        style={{
+          width: '735px',
+          height: '200px',
+          border: '2px solid #000',
+          padding: `1em`, 
+        }}
           type="text"
           placeholder="Content"
           id="content"
