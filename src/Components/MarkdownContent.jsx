@@ -1,13 +1,13 @@
 import ReactMarkdown from 'react-markdown';
-import Card from 'react-bootstrap';
+import { Card }from 'react-bootstrap';
 
 
 
-const MarkdownContent = ({ content }) => {
+const MarkdownContent = ({ url }) => {
     return (
       <Card>
         <Card.Body>
-          <ReactMarkdown>{content}</ReactMarkdown>
+          <ReactMarkdown>{url}</ReactMarkdown>
         </Card.Body>
       </Card>
     );

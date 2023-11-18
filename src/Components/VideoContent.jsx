@@ -1,16 +1,17 @@
 import ReactPlayer from "react-player";
-import Card from "react-bootstrap";
-
+import { Carousel, Card } from "react-bootstrap";
 
 const VideoContent = ({ urls }) => {
     return (
       <Card>
         <Card.Body>
-        {urls.map((url, index) => (
-          <div key={index} className="mb-3">
-            <ReactPlayer url={url} controls />
-          </div>
-        ))}
+            <Carousel>
+                {urls.map((url, i) => (
+                    <Carousel.Item key={i}>
+                        <ReactPlayer url={url} controls />
+                    </Carousel.Item>
+                ))}
+            </Carousel>
         </Card.Body>
       </Card>
     );

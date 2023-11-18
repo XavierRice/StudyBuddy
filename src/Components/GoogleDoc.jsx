@@ -1,8 +1,8 @@
 import GoogleDocsViewer from 'react-google-docs-viewer';
-import Card from 'react-bootstrap';
+import { Card }from 'react-bootstrap';
 
 
-const GoogleDoc = ({ fileUrl }) => {
+const GoogleDocShow = ({ fileUrl }) => {
   return (
     <Card>
       <Card.Body>
@@ -12,4 +12,4 @@ const GoogleDoc = ({ fileUrl }) => {
   );
 };
 
-export default GoogleDocContentComponent;
+export default GoogleDocShow;
