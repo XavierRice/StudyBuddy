@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Link, useParams, useNavigate, useMatch } from 'react-router-dom';
+import { useParams, useNavigate, } from 'react-router-dom';
 import VideoContent from './VideoContent';
 import NoteEditForm from './NoteEditForm';
 
@@ -26,21 +26,24 @@ function NoteDetails() {
   }, [note_id])
 
   const handleAdd = (newNote) => {
-    fetch(`${API}/user/${id}/notes`), {
+    fetch(`${API}/user/${id}/notes`, {
       method: "POST",
       body: JSON.stringify(newNote),
       headers: {
         "Content-Type": "application/json",
       },
-    }
-      .then((response) => response.json())
-      .then((responseJSON) => {
-        setNote([responseJSON, ...note]);
-      })
-      .catch((error) => console.error("catch", error));
-
+    })
+    .then((response)=> {
+      if (!response.ok){
+        throw new Error('Network is not ok')
+      }
+      return response.json()
+    })
+    .then((responseJson) =>{
+      setNote(responseJson)
+    })
+    .catch((error)=> console.error("error:", error))
   }
-
 
   const deleteNote = () => {
     fetch(`${API}/user/${id}/notes/${note_id}`, {
@@ -62,9 +65,9 @@ function NoteDetails() {
       <h2>Notes</h2>
       <h3>{note.subject_name}:</h3>
       <h4>Title: {note.title}</h4>
-      {/* {<note className="videos"></note> && (
+      { note.videos && (
         <VideoContent urls={note.videos} />
-      )} */}
+      )}
       <p>{note.content}</p>
       <br />
       {viewEdit ? (
@@ -72,6 +75,7 @@ function NoteDetails() {
           noteDetails={note}
           toggleView={toggleView}
           handleAdd={handleAdd}
+          id={id}
         />
       ) : <button onClick={toggleView}>
         {viewEdit ? "Cancel" : "Edit this Note"}

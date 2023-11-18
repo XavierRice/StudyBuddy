@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom"
 import { Card, ListGroup, Button } from "react-bootstrap";
+import imgObj from "../assets/pictures";
 
 const API = import.meta.env.VITE_BASE_URL;
 

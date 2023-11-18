@@ -2,8 +2,7 @@ import { useState} from "react";
 import { useParams } from "react-router";
 import { Button, Form } from "react-bootstrap";
 
-function NoteEditForm({ noteDetails, toggleView, handleAdd }) {
-  let { id } = useParams();
+function NoteEditForm({ noteDetails, toggleView, handleAdd, id }) {
 
   const [note, setNote] = useState({
     user_id: id,
@@ -27,7 +26,7 @@ const handleFavorite = (event) => {
 const onSubmit = (event) => {
   event.preventDefault();
   handleAdd(note);
-    toggleView();
+  toggleView();
   setNote({
     user_id: id,
     subject_name: "",
@@ -37,6 +36,7 @@ const onSubmit = (event) => {
     is_favorite: false,
   });
 }
+
   return (
     <Form onSubmit={onSubmit}>
       <Form.Group className="mb-3">

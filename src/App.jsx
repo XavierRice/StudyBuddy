@@ -6,6 +6,7 @@ import './App.css'
 import Home from './Pages/Home'
 import Index from './Pages/Index'
 import Show from './Pages/Show'
+import New from './Pages/NewUser'
 import FourOFour from './Pages/FourOFour'
 
 
@@ -14,23 +15,26 @@ import NoteDetails from './Components/NoteDetails'
 import NoteEditForm from './Components/NoteEditForm'
 
 function App() {
- 
+
 
   return (
     <div className='App'>
       <Router>
-      <main>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/users" element={<Index />} />
-        <Route path="/users/:id" element={<Show/>}/>
-        <Route exact path="/users/:id/notes/:note_id" element={<NoteDetails/>}/>
-        <Route exact path="/users/:id/edit" element={<NoteEditForm />} />
-      </Routes>
-      </main>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/users" element={<Index />} />
+            <Route path="/users/:id" element={<Show />} />
+            <Route path="users/new" element={<New/>}/>
+            <Route exact path="/users/:id/notes/:note_id" element={<NoteDetails />} />
+            <Route exact path="/users/:id/edit" element={<NoteEditForm />} />
+            <Route path="*" element={<FourOFour />} />
+          </Routes>
+        </main>
       </Router>
     </div>
   )
 }
 
 export default App
+
