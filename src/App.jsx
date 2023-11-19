@@ -15,6 +15,7 @@ import NoteDetails from './Components/NoteDetails'
 import NoteEditForm from './Components/NoteEditForm'
 import UserEditFrom from './Components/UserEditForm'
 import Header from './Components/Header'
+import NewNote from './Components/NewNoteForm'
 
 function App() {
 
@@ -29,8 +30,10 @@ function App() {
             <Route path="/users" element={<Index />} />
             <Route path="/users/:id" element={<Show />} />
             <Route path="users/new" element={<New/>}/>
+            <Route path="users/:id/new" element={<NewNote/>}/>
             <Route path="users/:id/edit" element={<UserEditFrom/>}/>
             <Route exact path="/users/:id/notes/:note_id" element={<NoteDetails />} />
+            <Route exact path="/users/:id/notes/:note_id/edit" element={<NoteEditForm />} />
             <Route path="*" element={<FourOFour />} />
           </Routes>
         </main>

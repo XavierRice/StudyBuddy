@@ -2,15 +2,15 @@ import { useState} from "react";
 import { useParams } from "react-router";
 import { Button, Form } from "react-bootstrap";
 
-function NoteEditForm({ noteDetails, toggleView, handleAdd, id }) {
+function NoteEditForm({ noteDetails, toggleView, handleEdit, id }) {
 
   const [note, setNote] = useState({
     user_id: id,
     subject_name: noteDetails.subject_name || "",
     title: noteDetails.title || "",
-    Videos: noteDetails.videos || [],
+    videos: noteDetails.videos || "",
     content: noteDetails.content || "",
-    is_favorite: noteDetails.content || "",
+    is_favorite: noteDetails.is_favorite|| "",
   });
 
 
@@ -25,7 +25,7 @@ const handleFavorite = (event) => {
 
 const onSubmit = (event) => {
   event.preventDefault();
-  handleAdd(note);
+  handleEdit(note);
   toggleView();
   setNote({
     user_id: id,
@@ -75,12 +75,12 @@ const onSubmit = (event) => {
           onChange={handleTextChange}
         />
       </Form.Group>
-      <Form.Group className="mb-3">
+      <Form.Group >
         <Form.Label>Favorite</Form.Label>
         <Form.Control
           type="checkbox"
           id="is_favorite"
-          value={note.is_favorite}
+          checked={note.is_favorite}
           onChange={handleFavorite}
         />
       </Form.Group>

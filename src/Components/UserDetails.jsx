@@ -8,11 +8,12 @@ const API = import.meta.env.VITE_BASE_URL;
 
 function UserDetails() {
 
-    const [user, setUser] = useState([]);
+    const [user, setUser] = useState({});
     const { id } = useParams();
     let navigate = useNavigate()
 
     useEffect(() => {
+      console.log(id)
         fetch(`${API}/user/${id}/notes`)
             .then((res) => res.json())
             .then((resJson) => setUser(resJson))
@@ -58,7 +59,11 @@ function UserDetails() {
             <Link to={`/users/${id}/edit`}>
               <Button variant="warning">Edit</Button>
             </Link>
+            <Link to={`/users/${id}/new`}>
+              <Button variant="info">New</Button>
+            </Link>
             <Button variant="danger" onClick={handleDelete}>Delete</Button>
+            
           </Card.Body>
         </>
       )}

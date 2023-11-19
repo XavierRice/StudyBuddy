@@ -41,9 +41,33 @@ function NoteDetails() {
     })
     .then((responseJson) =>{
       setNote(responseJson)
+      navigate(`/users/${id}`)
     })
     .catch((error)=> console.error("error:", error))
   }
+
+  const handleEdit = (note) => {
+    fetch(`${API}/user/${id}/notes/${note_id}`, {
+      method: "PUT",
+      body: JSON.stringify(note),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network is not ok');
+        }
+        return response.json();
+      })
+      .then((responseJson) => {
+        setNote(responseJson);
+        toggleView(); // Hide the edit form after successful update
+      })
+      .catch((error) => console.error("error:", error));
+  };
+  
+
 
   const deleteNote = () => {
     fetch(`${API}/user/${id}/notes/${note_id}`, {
@@ -84,7 +108,7 @@ function NoteDetails() {
         <NoteEditForm
           noteDetails={note}
           toggleView={toggleView}
-          handleAdd={handleAdd}
+          handleEdit={handleEdit}
           id={id}
         />
       ) : <button onClick={toggleView}>
