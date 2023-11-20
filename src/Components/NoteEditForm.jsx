@@ -1,5 +1,4 @@
 import { useState} from "react";
-import { useParams } from "react-router";
 import { Button, Form } from "react-bootstrap";
 
 function NoteEditForm({ noteDetails, toggleView, handleEdit, id }) {
@@ -10,7 +9,7 @@ function NoteEditForm({ noteDetails, toggleView, handleEdit, id }) {
     title: noteDetails.title || "",
     videos: noteDetails.videos || "",
     content: noteDetails.content || "",
-    is_favorite: noteDetails.is_favorite|| "",
+    is_favorite: noteDetails.is_favorite|| false,
   });
 
 
@@ -77,8 +76,8 @@ const onSubmit = (event) => {
       </Form.Group>
       <Form.Group >
         <Form.Label>Favorite</Form.Label>
-        <Form.Control
-          type="checkbox"
+        <Form.Check
+          type="switch"
           id="is_favorite"
           checked={note.is_favorite}
           onChange={handleFavorite}

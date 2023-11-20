@@ -16,7 +16,11 @@ function UserDetails() {
       console.log(id)
         fetch(`${API}/user/${id}/notes`)
             .then((res) => res.json())
-            .then((resJson) => setUser(resJson))
+            .then((resJson) => { 
+              console.log(resJson)
+              setUser(resJson)
+            } )
+            
             .catch((error) => console.error(error))
     }, [id])
 

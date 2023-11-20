@@ -31,7 +31,7 @@ function Users() {
                                 <br/>
                                 {user.membership ? "🌟" : "BECOME A MEMEBER"}
                                 <br/>
-                                <Link to={`/users/${user.id}`}>🔎STUDIES:</Link>
+                                <Link to={`/users/${user.id}`}>🔎Notes📝:</Link>
                             </Accordion.Body>
                         </Accordion.Item>
                     )

@@ -99,10 +99,10 @@ return(
     </Form.Group>
     <Form.Group className="mb-3">
       <Form.Label>Membership</Form.Label>
-      <Form.Control
-        type="checkbox"
+      <Form.Check
+        type="switch"
         id="membership"
-        value={user.membership}
+        checked={user.membership}
         onChange={handleCheckboxChange}
       />
     </Form.Group>

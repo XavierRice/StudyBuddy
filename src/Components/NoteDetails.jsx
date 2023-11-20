@@ -73,7 +73,7 @@ function NoteDetails() {
     fetch(`${API}/user/${id}/notes/${note_id}`, {
       method: "DELETE",
     })
-      .then(() => navigate(`/user/${id}`))
+      .then(() => navigate(`/user`))
       .catch((error) => console.error(error));
   };
 
