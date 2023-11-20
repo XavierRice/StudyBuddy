@@ -1,7 +1,7 @@
 Welome to StudyBuddy: 10.1 Portfolio Project by Xavier Rice
 
 # 📚 Study Buddy App 🤓
-
+[https://studybuddyx.netlify.app/]
 
 
 Have you ever had a classmate who shared a fantastic video to help you understand a difficult subject? Well, Study Buddy is just that - an app designed to enhance your learning experience! With Study Buddy, you can create a user profile, add notes, attach helpful videos, and dive into various subjects to ace your studies! In the future, you'll even be able to trade notes and recommendations with other users.
@@ -37,7 +37,7 @@ Have you ever had a classmate who shared a fantastic video to help you understan
 
 ## Technologies Used 🛠️
 
-- Frontend: React, React-Player
+- Frontend: React, React-Player and Netlify [https://studybuddyx.netlify.app/]
 - Backend: [https://github.com/XavierRice/mod4ProjectBACKEND]
 - Database: PSQL & Render [https://studybuddyapi.onrender.com/]
 - Project Management: [https://trello.com/b/bdOoyM1q/project-full-stack-portfolio]
