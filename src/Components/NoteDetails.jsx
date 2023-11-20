@@ -73,7 +73,7 @@ function NoteDetails() {
     fetch(`${API}/user/${id}/notes/${note_id}`, {
       method: "DELETE",
     })
-      .then(() => navigate(`/user`))
+      .then(() => navigate(`/users`))
       .catch((error) => console.error(error));
   };
 
@@ -114,6 +114,8 @@ function NoteDetails() {
       ) : <button onClick={toggleView}>
         {viewEdit ? "Cancel" : "Edit this Note"}
       </button>}
+      <br></br>
+      <br></br>
       <button onClick={handleDelete}>Delete Note</button>
     </div>
   )

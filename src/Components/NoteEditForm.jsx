@@ -75,7 +75,7 @@ const onSubmit = (event) => {
         />
       </Form.Group>
       <Form.Group >
-        <Form.Label>Favorite</Form.Label>
+        <Form.Label style={{ color: 'gold' }}>Favorite</Form.Label>
         <Form.Check
           type="switch"
           id="is_favorite"
@@ -83,6 +83,8 @@ const onSubmit = (event) => {
           onChange={handleFavorite}
         />
       </Form.Group>
+      <br></br>
+      <br></br>
       <Button variant="primary" type="submit">
         Submit
       </Button>
