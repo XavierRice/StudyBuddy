@@ -160,8 +160,8 @@ return (
       {passwordError && <div className='error-message'>You Must Enter a Password</div>}
     </Form.Group>
     <Form.Group className="mb-3">
-      <Form.Label>Membership</Form.Label>
-      <Form.Control
+      <Form.Label style={{ color: 'gold' }} >Membership</Form.Label>
+      <Form.Check
         type="checkbox"
         id="membership"
         value={user.membership}

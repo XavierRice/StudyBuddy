@@ -5,7 +5,7 @@ import { Form, Button } from 'react-bootstrap'
 const API = import.meta.env.VITE_BASE_URL;
 
 function NewNote(){
-const { id } = useParams
+const { id } = useParams()
 const navigate = useNavigate();
 
     const [note, setNote] = useState({
@@ -102,9 +102,9 @@ return (
     </Form.Group>
     </Form.Group>
     <Form.Group className="mb-3">
-      <Form.Label>Favorite</Form.Label>
-      <Form.Control
-        type="checkbox"
+      <Form.Label style={{ color: 'gold' }}>Favorite</Form.Label>
+      <Form.Check
+        type="switch"
         id="is_favorite"
         checked={note.is_favorite}
         onChange={handleFavorite}
